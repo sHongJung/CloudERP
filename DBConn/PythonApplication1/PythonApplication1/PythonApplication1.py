@@ -15,10 +15,12 @@ cursor = cnxn.cursor()
 cursor.execute("SELECT * FROM ExecutiveReport")
 row = cursor.fetchone()
 while row:
-    print (str(row[0]) + "  " + str(row[1])+ "  " +  str(row[2]) + "  "+  str(row[3]) + "  "+  str(row[4]) )
-    row = cursor.fetchone()
+   print ('{:10}'.format(str(row[0])) + '{:>8}'.format(str(row[1])) +  '{:>13}'.format(str(row[2])) +  '{:>14}'.format(str(row[3])) +  '{:>13}'.format(str(row[4])) +  '{:>13}'.format(str(row[5])) + '{:>13}'.format(str(row[6])) )
+   row = cursor.fetchone()
 
-'''
-df = pd.read_sql_query('select * from ExecutiveReport', cnxn)
+
+
+'''     
+df = pd.read_sql_table('select * from ExecutiveReport', cnxn)
 df.head()
 '''
